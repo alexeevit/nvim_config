@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " NERDTree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 map tt :NERDTreeToggle<CR>
+cd ~
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
