@@ -36,7 +36,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 "let g:deus_termcolors=256
 
-"set noswapfile
+set noswapfile
 
 cd ~/dev
 nmap tt :NERDTreeToggle<CR>
@@ -88,3 +88,13 @@ vnoremap <leader>P "+P
 
 "set cursorline   " highlight current line
 set cursorcolumn " highlight current column
+
+set showmatch     " set show matching parenthesis
+
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                    "    case-sensitive otherwise
+set smarttab      " insert tabs on the start of a line according to
+                    "    shiftwidth, not tabstop
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
