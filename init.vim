@@ -31,14 +31,25 @@ syntax enable
 filetype plugin indent on
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
 "let g:deus_termcolors=256
 
 set noswapfile
 
-cd ~/dev
+cd ~/dev/www
 nmap tt :NERDTreeToggle<CR>
 let g:NERDTreePath = '~/dev'
 
