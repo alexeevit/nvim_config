@@ -1,111 +1,213 @@
-if &compatible
-  set nocompatible
-endif
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+call plug#begin('~/.local/share/nvim/plugged')
 
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+" Defaults
+Plug 'tpope/vim-sensible'
 
-  call dein#add('slim-template/vim-slim')
-  call dein#add('tpope/vim-haml')
-  call dein#add('tpope/vim-endwise')
+" Local vimrc for each project
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
 
-  call dein#add('scrooloose/nerdtree')
+" System clipboard by <leader>
+Plug 'lxhillwind/leader-clipboard'
 
-  call dein#add('elzr/vim-json')
+" Colorscheme
+Plug 'icymind/NeoSolarized'
 
-  call dein#add('ajmwagar/vim-deus')
+" Buttom info line
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
+Plug 'mgee/lightline-bufferline'
 
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
+" File manager
+Plug 'tpope/vim-vinegar'
 
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('jiangmiao/auto-pairs')
+" Easy motion through a code
+Plug 'easymotion/vim-easymotion'
 
-  call dein#end()
-  call dein#save_state()
-endif
+"Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
-syntax enable
-filetype plugin indent on
-autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+" Linting and copmletition
+Plug 'ervandew/supertab'
+Plug 'w0rp/ale'
+Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespace characters to be highlighted
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme='deus'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = '|'
+" Ruby
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'slim-template/vim-slim'
 
-nnoremap <Tab> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
-nnoremap H :bp<CR>
-nnoremap L :bn<CR>
-"let g:deus_termcolors=256
+" PHP
+Plug 'jwalton512/vim-blade', { 'for': 'php' }
+Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
-set noswapfile
+" JS & TS
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' } "jsx
+Plug 'peitalin/vim-jsx-typescript' "tsx
 
-cd ~/dev/www
-nmap tt :NERDTreeToggle<CR>
-let g:NERDTreePath = '~/dev'
+" Data formats
+Plug 'elzr/vim-json'
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+call plug#end()
 
+" Colorscheme
+colorscheme NeoSolarized
 set termguicolors
-" Color Scheme
-colorscheme deus
+set background=dark
 
-" Clear search highlighting by Esc
-nnoremap <silent> <esc> :nohlsearch<CR><esc>
-
-" Git handler
-" let g:gitgutter_sign_column_always = 1
-
+" Numbers of lines
 set nu
 
+" Search settings
+set hlsearch
+set ignorecase
+set smartcase
+
+" Highlight column and line where is cursor
+set cursorline
+set cursorcolumn
+
+" No show mode in status
+set noshowmode
+
+" Column left ot row-num for git symbols
+set signcolumn=yes
+
+" [] and {} highlighting
+set showmatch
+
+" Enable hotkeys for Russian layout
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+" Backup and swap files
+set nobackup
+set nowritebackup
+set nowb
+set noswapfile
+
 " Tab size
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set ts=2 sw=2 et
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set ts=4 sw=4 et
+
+autocmd FileType ruby setlocal tabstop=2
+autocmd BufRead,BufNewFile *.arb setfiletype ruby
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+nnoremap <silent><Esc> :nohlsearch
+nnoremap <silent><C-TAB> :tabnext<CR>
+nnoremap <silent><C-S-TAB> :tabprevious<CR>
+
+" Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with line wrapping on, this can cause the cursor to actually skip a few lines on the screen because it's moving from line N to line N+1 in the file. I want this to act more visually -- I want `down' to mean the next line on the screen
+nnoremap j gj
+nnoremap k gk
+
+" Map ctrl-movement keys to window switching
+nnoremap <C-k> <C-w><Up>
+nnoremap <C-j> <C-w><Down>
+nnoremap <C-l> <C-w><Right>
+nnoremap <C-h> <C-w><Left>
+
+" Escape mappings
+inoremap jk <Esc>
+inoremap JK <Esc>
+inoremap kk <Esc>
+inoremap KK <Esc>
+
+" Enter command mode mappings
+nnoremap ; :
+vnoremap ; :
+nnoremap Ж :
+vnoremap Ж :
+nnoremap ж :
+vnoremap ж :
 
 " Move rows to 1 tab with << or >>
-vmap < <gv
-vmap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
-set showmatch     " set show matching parenthesis
+" Set leader key to space
+let mapleader = "\<Space>"
 
-" Screen jump
-set scrolljump=7
-set scrolloff=7
+" Lightline
+let g:lightline = {}
 
-set clipboard+=unnamedplus
+let g:lightline.colorscheme = 'solarized'
 
-" " Copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
+let g:lightline.component_function = {
+\   'gitbranch': 'fugitive#head'
+\ }
 
-" " Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+let g:lightline.component_expand = {
+\   'linter_checking': 'lightline#ale#checking',
+\   'linter_warnings': 'lightline#ale#warnings',
+\   'linter_errors': 'lightline#ale#errors',
+\   'linter_ok': 'lightline#ale#ok',
+\ }
 
-"set cursorline   " highlight current line
-set cursorcolumn " highlight current column
+let g:lightline.component_type = {
+\   'linter_checking': 'left',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error',
+\   'linter_ok': 'left',
+\ }
 
-set showmatch     " set show matching parenthesis
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
 
-set ignorecase    " ignore case when searching
-set smartcase     " ignore case if search pattern is all lowercase,
-                    "    case-sensitive otherwise
-set smarttab      " insert tabs on the start of a line according to
-                    "    shiftwidth, not tabstop
-set hlsearch      " highlight search terms
-set incsearch     " show search matches as you type
+let g:lightline.active = {
+\   'left': [
+\     [ 'mode', 'paste' ],
+\       [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+\     ],
+\   'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]]
+\ }
+
+
+" Typescript jsx highliting
+" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxCloseString guifg=#E06C75
+hi tsxCloseTag guifg=#E06C75
+
+" orange
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap <Leader>ы <Plug>(easymotion-overwin-f2)
+
+" EasyMotion configuration
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Ale
+let g:ale_completion_enabled = 1
+let g:ale_linters = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint', 'tsserver'],
+      \}
+
+map <silent>gd :ALEGoToDefinition<CR>
+map <silent>gr :ALEFindReferences<CR>
+nmap <silent> <C-[> <Plug>(ale_previous_wrap)
+nmap <silent> <C-]> <Plug>(ale_next_wrap)
