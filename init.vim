@@ -24,7 +24,7 @@ Plug 'tpope/vim-vinegar'
 " Easy motion through a code
 Plug 'easymotion/vim-easymotion'
 
-"Git
+" Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
@@ -100,25 +100,25 @@ autocmd FileType ruby setlocal tabstop=2
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
-nnoremap <silent><Esc> :nohlsearch
+nnoremap <silent><Esc><Esc> :nohlsearch<CR>
 nnoremap <silent><C-TAB> :tabnext<CR>
 nnoremap <silent><C-S-TAB> :tabprevious<CR>
 
 " Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with line wrapping on, this can cause the cursor to actually skip a few lines on the screen because it's moving from line N to line N+1 in the file. I want this to act more visually -- I want `down' to mean the next line on the screen
-nnoremap j gj
-nnoremap k gk
+nnoremap <silent>j gj
+nnoremap <silent>k gk
 
 " Map ctrl-movement keys to window switching
-nnoremap <C-k> <C-w><Up>
-nnoremap <C-j> <C-w><Down>
-nnoremap <C-l> <C-w><Right>
-nnoremap <C-h> <C-w><Left>
+nnoremap <silent><C-k> <C-w><Up>
+nnoremap <silent><C-j> <C-w><Down>
+nnoremap <silent><C-l> <C-w><Right>
+nnoremap <silent><C-h> <C-w><Left>
 
 " Escape mappings
-inoremap jk <Esc>
-inoremap JK <Esc>
-inoremap kk <Esc>
-inoremap KK <Esc>
+imap jk <Esc>
+imap JK <Esc>
+imap kk <Esc>
+imap KK <Esc>
 
 " Enter command mode mappings
 nnoremap ; :
