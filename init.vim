@@ -100,7 +100,7 @@ autocmd FileType ruby setlocal tabstop=2
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
-nnoremap <silent><Esc><Esc> :nohlsearch<CR>
+nnoremap <silent><Esc> :nohlsearch<CR>
 nnoremap <silent><C-TAB> :tabnext<CR>
 nnoremap <silent><C-S-TAB> :tabprevious<CR>
 
@@ -209,5 +209,5 @@ let g:ale_linters = {
 
 map <silent>gd :ALEGoToDefinition<CR>
 map <silent>gr :ALEFindReferences<CR>
-nmap <silent> <C-[> <Plug>(ale_previous_wrap)
-nmap <silent> <C-]> <Plug>(ale_next_wrap)
+nnoremap <silent>[c <Plug>(ale_previous_wrap)
+nnoremap <silent>]c <Plug>(ale_next_wrap)
