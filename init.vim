@@ -203,9 +203,9 @@ map <Leader>k <Plug>(easymotion-k)
 " Ale
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['eslint', 'tsserver'],
-      \}
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint', 'tsserver'],
+\ }
 
 map <silent>gd :ALEGoToDefinition<CR>
 map <silent>gr :ALEFindReferences<CR>
