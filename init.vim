@@ -52,6 +52,7 @@ Plug 'peitalin/vim-jsx-typescript' "tsx
 " Data formats
 Plug 'elzr/vim-json'
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+Plug 'chr4/nginx.vim'
 
 call plug#end()
 
