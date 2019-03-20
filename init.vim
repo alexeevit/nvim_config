@@ -44,10 +44,8 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
 " JS & TS
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' } "jsx
-Plug 'peitalin/vim-jsx-typescript' "tsx
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/yajs.vim'
 
 " Data formats
 Plug 'elzr/vim-json'
@@ -171,20 +169,6 @@ let g:lightline.active = {
 \     ],
 \   'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]]
 \ }
-
-
-" Typescript jsx highliting
-" dark red
-hi tsxTagName guifg=#E06C75
-hi tsxCloseString guifg=#E06C75
-hi tsxCloseTag guifg=#E06C75
-
-" orange
-hi tsxAttributeBraces guifg=#F99575
-hi tsxEqual guifg=#F99575
-
-" yellow
-hi tsxAttrib guifg=#F8BD7F cterm=italic
 
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
