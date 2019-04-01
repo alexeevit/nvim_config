@@ -38,6 +38,9 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim'
 
+" Python
+Plug 'vim-python/python-syntax'
+
 " PHP
 Plug 'jwalton512/vim-blade', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
@@ -187,10 +190,19 @@ map <Leader>k <Plug>(easymotion-k)
 
 " Ale
 let g:ale_completion_enabled = 1
+let g:ale_php_phpcs_standard = 'PSR12'
+let g:ale_php_phpcs_executable = expand('~/.composer/vendor/bin/phpcs')
+let g:ale_php_phpcs_use_global = 1
+let g:ale_php_langserver_use_global = 1
+let g:ale_php_langserver_executable = expand('~/.composer/vendor/bin/php-language-server.php')
 let g:ale_linters = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'tsserver'],
 \ }
+let g:ale_javascript_tsserver_use_global = 1
+let g:ale_javascript_eslint_use_global = 1
+
+set completeopt+=noinsert " Dont autocomplete
 
 map <silent>gd :ALEGoToDefinition<CR>
 map <silent>gr :ALEFindReferences<CR>
