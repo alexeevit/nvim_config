@@ -21,6 +21,10 @@ Plug 'mgee/lightline-bufferline'
 " File manager
 Plug 'tpope/vim-vinegar'
 
+" Fuzzy finder
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
 " Easy motion through a code
 Plug 'easymotion/vim-easymotion'
 
@@ -93,6 +97,7 @@ set nowb
 set noswapfile
 
 " Tab size
+set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
@@ -198,6 +203,7 @@ let g:ale_php_langserver_executable = expand('~/.composer/vendor/bin/php-languag
 let g:ale_linters = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'tsserver'],
+\   'python': ['pyls']
 \ }
 let g:ale_javascript_tsserver_use_global = 1
 let g:ale_javascript_eslint_use_global = 1
@@ -208,3 +214,8 @@ map <silent>gd :ALEGoToDefinition<CR>
 map <silent>gr :ALEFindReferences<CR>
 nnoremap <silent>[c <Plug>(ale_previous_wrap)
 nnoremap <silent>]c <Plug>(ale_next_wrap)
+
+" Vinegar
+set wildignore+=*DS_Store*
+set wildignore+=*.pyc
+set wildignore+=*/.git/*
