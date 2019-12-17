@@ -32,8 +32,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+" LSP
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Linting and copmletition
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespace characters to be highlighted
 
@@ -98,18 +101,19 @@ set noswapfile
 
 " Tab size
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set ts=4 sw=4 et
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set ts=2 sw=2 et
 
-autocmd FileType ruby setlocal tabstop=2
+autocmd FileType ruby,javascript setlocal tabstop=2
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 nnoremap <silent><Esc> :nohlsearch<CR>
 nnoremap <silent><C-TAB> :tabnext<CR>
 nnoremap <silent><C-S-TAB> :tabprevious<CR>
+nnoremap <silent><C-T> :tabnew<CR>
 
 " Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with line wrapping on, this can cause the cursor to actually skip a few lines on the screen because it's moving from line N to line N+1 in the file. I want this to act more visually -- I want `down' to mean the next line on the screen
 nnoremap <silent>j gj
@@ -193,6 +197,63 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" coc
+let g:coc_global_extensions = ['coc-solargraph']
+
 " Ale
 let g:ale_completion_enabled = 1
 let g:ale_php_phpcs_standard = 'PSR12'
@@ -203,17 +264,18 @@ let g:ale_php_langserver_executable = expand('~/.composer/vendor/bin/php-languag
 let g:ale_linters = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'tsserver'],
-\   'python': ['pyls']
+\   'python': ['pyls'],
+\   'ruby': ['standardrb', 'rubocop'],
 \ }
 let g:ale_javascript_tsserver_use_global = 1
 let g:ale_javascript_eslint_use_global = 1
 
 set completeopt+=noinsert " Dont autocomplete
 
-map <silent>gd :ALEGoToDefinition<CR>
-map <silent>gr :ALEFindReferences<CR>
-nnoremap <silent>[c <Plug>(ale_previous_wrap)
-nnoremap <silent>]c <Plug>(ale_next_wrap)
+"map <silent>gd :ALEGoToDefinition<CR>
+"map <silent>gr :ALEFindReferences<CR>
+"nnoremap <silent>[c <Plug>(ale_previous_wrap)
+"nnoremap <silent>]c <Plug>(ale_next_wrap)
 
 " Vinegar
 set wildignore+=*DS_Store*
