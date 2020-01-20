@@ -1,2 +1,2 @@
-:Guifont! Hack Nerd Font Mono:h11
+:Guifont! JetBrains Mono:h12
 :GuiTabline 0
