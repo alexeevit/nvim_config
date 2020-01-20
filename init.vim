@@ -141,6 +141,7 @@ vnoremap ж :
 
 " Move rows to 1 tab with << or >>
 vnoremap < <gv
+vnoremap <s-lt> <gv
 vnoremap > >gv
 
 " Set leader key to space
