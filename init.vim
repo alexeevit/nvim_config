@@ -114,6 +114,7 @@ nnoremap <silent><Esc> :nohlsearch<CR>
 nnoremap <silent><C-TAB> :tabnext<CR>
 nnoremap <silent><C-S-TAB> :tabprevious<CR>
 nnoremap <silent><C-T> :tabnew<CR>
+nnoremap <silent><C-W> :tabclose<CR>
 
 " Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with line wrapping on, this can cause the cursor to actually skip a few lines on the screen because it's moving from line N to line N+1 in the file. I want this to act more visually -- I want `down' to mean the next line on the screen
 nnoremap <silent>j gj
