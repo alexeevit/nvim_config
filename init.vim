@@ -12,10 +12,10 @@ Plug 'lxhillwind/leader-clipboard'
 
 " Colorscheme
 Plug 'icymind/NeoSolarized'
+Plug 'cocopon/iceberg.vim'
 
 " Buttom info line
 Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
 Plug 'mgee/lightline-bufferline'
 
 " File manager
@@ -37,7 +37,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Linting and copmletition
 " Plug 'ervandew/supertab'
-Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespace characters to be highlighted
 
 " Ruby
@@ -65,7 +64,7 @@ Plug 'chr4/nginx.vim'
 call plug#end()
 
 " Colorscheme
-colorscheme NeoSolarized
+colorscheme iceberg
 set termguicolors
 set background=dark
 
@@ -111,10 +110,12 @@ autocmd BufRead,BufNewFile *.arb setfiletype ruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 nnoremap <silent><Esc> :nohlsearch<CR>
-nnoremap <silent><C-TAB> :tabnext<CR>
-nnoremap <silent><C-S-TAB> :tabprevious<CR>
+nnoremap <silent><C-TAB> :tabn<CR>
+nnoremap <silent><C-S-TAB> :tabp<CR>
 nnoremap <silent><C-T> :tabnew<CR>
-nnoremap <silent><C-W> :tabclose<CR>
+
+" Don't use this binding because it breaks windows splitting by C-W-V and C-W-S
+" nnoremap <silent><C-W> :tabclose<CR>
 
 " Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with line wrapping on, this can cause the cursor to actually skip a few lines on the screen because it's moving from line N to line N+1 in the file. I want this to act more visually -- I want `down' to mean the next line on the screen
 nnoremap <silent>j gj
@@ -151,17 +152,10 @@ let mapleader = "\<Space>"
 " Lightline
 let g:lightline = {}
 
-let g:lightline.colorscheme = 'solarized'
+let g:lightline.colorscheme = 'iceberg'
 
 let g:lightline.component_function = {
 \   'gitbranch': 'fugitive#head'
-\ }
-
-let g:lightline.component_expand = {
-\   'linter_checking': 'lightline#ale#checking',
-\   'linter_warnings': 'lightline#ale#warnings',
-\   'linter_errors': 'lightline#ale#errors',
-\   'linter_ok': 'lightline#ale#ok',
 \ }
 
 let g:lightline.component_type = {
@@ -170,12 +164,6 @@ let g:lightline.component_type = {
 \   'linter_errors': 'error',
 \   'linter_ok': 'left',
 \ }
-
-let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf05e"
-let g:lightline#ale#indicator_ok = "\uf00c"
-
 let g:lightline.active = {
 \   'left': [
 \     [ 'mode', 'paste' ],
@@ -255,29 +243,6 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " coc
 let g:coc_global_extensions = ['coc-solargraph']
-
-" Ale
-let g:ale_completion_enabled = 1
-let g:ale_php_phpcs_standard = 'PSR12'
-let g:ale_php_phpcs_executable = expand('~/.composer/vendor/bin/phpcs')
-let g:ale_php_phpcs_use_global = 1
-let g:ale_php_langserver_use_global = 1
-let g:ale_php_langserver_executable = expand('~/.composer/vendor/bin/php-language-server.php')
-let g:ale_linters = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint', 'tsserver'],
-\   'python': ['pyls'],
-\   'ruby': ['standardrb', 'rubocop'],
-\ }
-let g:ale_javascript_tsserver_use_global = 1
-let g:ale_javascript_eslint_use_global = 1
-
-set completeopt+=noinsert " Dont autocomplete
-
-"map <silent>gd :ALEGoToDefinition<CR>
-"map <silent>gr :ALEFindReferences<CR>
-"nnoremap <silent>[c <Plug>(ale_previous_wrap)
-"nnoremap <silent>]c <Plug>(ale_next_wrap)
 
 " Vinegar
 set wildignore+=*DS_Store*
