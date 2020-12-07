@@ -24,6 +24,9 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Auto chdir
 Plug 'airblade/vim-rooter'
 
+" Pass line and column to open at in the path
+Plug 'wsdjeg/vim-fetch'
+
 " Easy motion through a code
 Plug 'easymotion/vim-easymotion'
 
