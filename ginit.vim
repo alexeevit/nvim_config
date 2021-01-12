@@ -1,2 +1,2 @@
-:Guifont! JetBrains Mono:h12
+:Guifont! JetBrains Mono:h11
 :GuiTabline 0
