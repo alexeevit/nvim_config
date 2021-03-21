@@ -60,6 +60,10 @@ Plug 'chr4/nginx.vim'
 
 call plug#end()
 
+" Local vimrc file path
+let g:local_vimrc = ['.config', '_vimrc_local.vim']
+call lh#local_vimrc#munge('whitelist', $HOME.'/dev')
+
 " Rooter
 let g:rooter_patterns = ['.git']
 
@@ -115,11 +119,15 @@ set shiftround
 autocmd FileType ruby,javascript setlocal tabstop=2
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+
+nnoremap <C-p> "0p
+vnoremap <C-p> "0p
 
 nnoremap <silent><Esc> :nohlsearch<CR>
 nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
 nnoremap tl  :tablast<CR>
 nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnew<CR>
@@ -196,7 +204,11 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
+map <Leader>W <Plug>(easymotion-W)
+map <Leader>e <Plug>(easymotion-e)
+map <Leader>E <Plug>(easymotion-E)
 map <Leader>b <Plug>(easymotion-b)
+map <Leader>B <Plug>(easymotion-B)
 
 " Vinegar
 " set wildignore+=*DS_Store*
@@ -371,9 +383,9 @@ function! s:defx_toggle_tree() abort
 	return defx#do_action('multi', ['drop'])
 endfunction
 
-nnoremap <silent> <Leader>e
+nnoremap <silent> tt
       \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-nnoremap <silent> <Leader>F
+nnoremap <silent> tf
       \ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
 
 call defx#custom#option('_', {
