@@ -75,7 +75,7 @@ function! s:defx_mappings() abort
 	nnoremap <silent><buffer><expr> <CR>  <sid>defx_toggle_tree()
 	" nnoremap <silent><buffer><expr> l     defx#do_action('open_tree')
 	" nnoremap <silent><buffer><expr> h     defx#do_action('close_tree')
-	nnoremap <silent><buffer><expr> l     <sid>defx_toggle_tree()
+	nnoremap <silent><buffer><expr> l     defx#do_action('open_or_close_tree')
 	nnoremap <silent><buffer><expr> h     defx#do_action('cd', ['..'])
 	nnoremap <silent><buffer><expr> <C-t> defx#do_action('multi', [['drop', 'tabnew'], 'quit'])
 	nnoremap <silent><buffer><expr> s     defx#do_action('open', 'botright vsplit')
