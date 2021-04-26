@@ -25,6 +25,26 @@ function! s:defx_toggle_tree() abort
 	return defx#do_action('multi', ['drop'])
 endfunction
 
+function! s:defx_get_siblings(soft) abort
+  let paths = map(defx#get_candidates(), { i, file -> file.action__path })
+
+  if defx#is_directory() && defx#is_opened_tree() && a:soft
+    let parent = defx#get_candidate().action__path
+  else
+    let parent = fnamemodify(defx#get_candidate().action__path, ':h')
+  endif
+
+  return filter(paths, { i, path -> path =~ '^' . parent . '/' })
+endfunction
+
+function! s:defx_select_first_sibling() abort
+  return defx#do_action('search', <sid>defx_get_siblings(0)[0])
+endfunction
+
+function! s:defx_select_last_sibling() abort
+  return defx#do_action('search', <sid>defx_get_siblings(1)[-1])
+endfunction
+
 nnoremap <silent> tt
       \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
 nnoremap <silent> tf
@@ -49,12 +69,14 @@ function! s:defx_mappings() abort
 	" Defx window keyboard mappings
 	setlocal signcolumn=no expandtab
 
-  nnoremap <silent><buffer><expr> <C-k> defx#do_action('search',
-        \ fnamemodify(defx#get_candidates()[0].action__path, ':h'))
+  nnoremap <silent><buffer><expr> <C-k> <sid>defx_select_first_sibling()
+  nnoremap <silent><buffer><expr> <C-j> <sid>defx_select_last_sibling()
   nnoremap <silent><buffer><expr> <C-o> defx#do_action('drop')
 	nnoremap <silent><buffer><expr> <CR>  <sid>defx_toggle_tree()
+	" nnoremap <silent><buffer><expr> l     defx#do_action('open_tree')
+	" nnoremap <silent><buffer><expr> h     defx#do_action('close_tree')
 	nnoremap <silent><buffer><expr> l     <sid>defx_toggle_tree()
-	nnoremap <silent><buffer><expr> h     defx#async_action('cd', ['..'])
+	nnoremap <silent><buffer><expr> h     defx#do_action('cd', ['..'])
 	nnoremap <silent><buffer><expr> <C-t> defx#do_action('multi', [['drop', 'tabnew'], 'quit'])
 	nnoremap <silent><buffer><expr> s     defx#do_action('open', 'botright vsplit')
 	nnoremap <silent><buffer><expr> i     defx#do_action('open', 'botright split')
