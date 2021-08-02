@@ -52,7 +52,7 @@ nnoremap <silent> tf
 
 call defx#custom#option('_', {
       \ 'resume': 1,
-      \ 'winwidth': 60,
+      \ 'winwidth': 45,
       \ 'split': 'vertical',
       \ 'direction': 'topleft',
       \ 'show_ignored_files': 0,
