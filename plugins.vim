@@ -40,6 +40,7 @@ Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespa
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim'
+Plug 'dewyze/vim-ruby-block-helpers'
 
 " Python
 Plug 'vim-python/python-syntax'
@@ -52,6 +53,7 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " JS & TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Data formats
 Plug 'elzr/vim-json'
