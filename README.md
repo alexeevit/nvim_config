@@ -5,10 +5,7 @@
 ### Install dependencies
 ```
 # Ubuntu
-sudo apt install python3
-
-# Fedora
-sudo yum install python3
+sudo apt install python3-pip
 ```
 
 ### Install python dependencies
