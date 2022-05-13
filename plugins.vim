@@ -13,6 +13,8 @@ Plug 'LucHermitte/local_vimrc'
 " Colorscheme
 Plug 'icymind/NeoSolarized'
 Plug 'cocopon/iceberg.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'f-person/auto-dark-mode.nvim'
 
 " Buttom info line
 Plug 'itchyny/lightline.vim'

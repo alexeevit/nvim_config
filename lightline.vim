@@ -1,8 +1,6 @@
 " Lightline
 let g:lightline = {}
 
-let g:lightline.colorscheme = 'iceberg'
-
 let g:lightline.component_function = {
 \   'gitbranch': 'LightlineGitbranch',
 \   'mode': 'LightlineMode',

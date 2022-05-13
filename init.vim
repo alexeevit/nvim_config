@@ -6,6 +6,7 @@ source ~/.config/nvim/easymotion.vim
 source ~/.config/nvim/lightline.vim
 source ~/.config/nvim/local_vimrc.vim
 source ~/.config/nvim/rooter.vim
+source ~/.config/nvim/colorscheme.vim
 
 " It hides buffers instead of closing them.
 " This means that you can have unwritten changes
@@ -25,11 +26,6 @@ set showmatch " [] and {} highlighting
 
 " Enable hotkeys for Russian layout
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-
-" Colorscheme
-colorscheme iceberg
-set termguicolors
-set background=dark
 
 " Search settings
 set hlsearch
