@@ -52,7 +52,7 @@ nnoremap <silent> tf
 
 call defx#custom#option('_', {
       \ 'resume': 1,
-      \ 'winwidth': 60,
+      \ 'winwidth': 40,
       \ 'split': 'vertical',
       \ 'direction': 'topleft',
       \ 'show_ignored_files': 0,
@@ -63,6 +63,8 @@ call defx#custom#column('icon', {
       \ 'directory_icon': '▸',
       \ 'opened_icon': '▾',
       \ 'root_icon': ' ',
+      \ 'min_width': 20,
+      \ 'max_width': 38,
       \ })
 
 function! s:defx_mappings() abort
