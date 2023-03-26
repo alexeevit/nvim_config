@@ -59,7 +59,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 
 " Data formats
 Plug 'elzr/vim-json'
-Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 Plug 'chr4/nginx.vim'
 
 call plug#end()
