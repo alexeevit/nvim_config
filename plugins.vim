@@ -16,6 +16,8 @@ Plug 'cocopon/iceberg.vim'
 
 Plug 'f-person/auto-dark-mode.nvim'
 
+Plug 'nathanaelkane/vim-indent-guides'
+
 " Buttom info line
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
@@ -24,7 +26,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Auto chdir
-Plug 'airblade/vim-rooter'
+" Plug 'airblade/vim-rooter'
 
 " Pass line and column to open at in the path
 Plug 'wsdjeg/vim-fetch'
@@ -43,6 +45,12 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim'
 Plug 'dewyze/vim-ruby-block-helpers'
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
+" Lua
+Plug 'tbastos/vim-lua'
 
 " Python
 Plug 'vim-python/python-syntax'
