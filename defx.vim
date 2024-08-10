@@ -74,51 +74,51 @@ function! s:defx_mappings() abort
   nnoremap <silent><buffer><expr> <C-k> <sid>defx_select_first_sibling()
   nnoremap <silent><buffer><expr> <C-j> <sid>defx_select_last_sibling()
   nnoremap <silent><buffer><expr> <C-o> defx#do_action('multi', ['drop', 'change_vim_cwd'])
-	nnoremap <silent><buffer><expr> <CR>  <sid>defx_toggle_tree()
-	nnoremap <silent><buffer><expr> l     defx#do_action('open_or_close_tree')
-	nnoremap <silent><buffer><expr> h     defx#do_action('cd', ['..'])
-	nnoremap <silent><buffer><expr> <C-t> defx#do_action('multi', [['drop', 'tabnew'], 'quit'])
-	nnoremap <silent><buffer><expr> <C-v>     defx#do_action('open', 'botright vsplit')
-	nnoremap <silent><buffer><expr> <C-s>     defx#do_action('open', 'botright split')
-	nnoremap <silent><buffer><expr> K     defx#do_action('new_directory')
-	nnoremap <silent><buffer><expr> %     defx#do_action('new_multiple_files')
-	nnoremap <silent><buffer><expr> dd    defx#do_action('remove_trash')
-	nnoremap <silent><buffer><expr> r     defx#do_action('rename')
-	nnoremap <silent><buffer><expr> .     defx#do_action('toggle_ignored_files')
-	nnoremap <silent><buffer><expr> yy    defx#do_action('yank_path')
-	nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
-	nnoremap <silent><buffer><expr> q     defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <CR>  <sid>defx_toggle_tree()
+  nnoremap <silent><buffer><expr> l     defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> h     defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> <C-t> defx#do_action('multi', [['drop', 'tabnew'], 'quit'])
+  nnoremap <silent><buffer><expr> <C-v>     defx#do_action('open', 'botright vsplit')
+  nnoremap <silent><buffer><expr> <C-s>     defx#do_action('open', 'botright split')
+  nnoremap <silent><buffer><expr> K     defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> %     defx#do_action('new_multiple_files')
+  nnoremap <silent><buffer><expr> dd    defx#do_action('remove_trash')
+  nnoremap <silent><buffer><expr> r     defx#do_action('rename')
+  nnoremap <silent><buffer><expr> .     defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> yy    defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
+  nnoremap <silent><buffer><expr> q     defx#do_action('quit')
 
-	" Defx's buffer management
-	nnoremap <silent><buffer><expr> q      defx#do_action('quit')
+  " Defx's buffer management
+  nnoremap <silent><buffer><expr> q      defx#do_action('quit')
 
-	nnoremap <silent><buffer><expr> <C-r>  defx#do_action('redraw')
+  nnoremap <silent><buffer><expr> <C-r>  defx#do_action('redraw')
 
-	" File/dir management
-	nnoremap <silent><buffer><expr><nowait> c  defx#do_action('copy')
-	nnoremap <silent><buffer><expr><nowait> m  defx#do_action('move')
-	nnoremap <silent><buffer><expr><nowait> p  defx#do_action('paste')
-	nnoremap <silent><buffer><expr><nowait> r  defx#do_action('rename')
-	nnoremap <silent><buffer><expr> dd defx#do_action('remove_trash')
-	nnoremap <silent><buffer><expr> K  defx#do_action('new_directory')
-	nnoremap <silent><buffer><expr> %  defx#do_action('new_multiple_files')
+  " File/dir management
+  nnoremap <silent><buffer><expr><nowait> c  defx#do_action('copy')
+  nnoremap <silent><buffer><expr><nowait> m  defx#do_action('move')
+  nnoremap <silent><buffer><expr><nowait> p  defx#do_action('paste')
+  nnoremap <silent><buffer><expr><nowait> r  defx#do_action('rename')
+  nnoremap <silent><buffer><expr> dd defx#do_action('remove_trash')
+  nnoremap <silent><buffer><expr> K  defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> %  defx#do_action('new_multiple_files')
 
-	" Change directory
-	nnoremap <silent><buffer><expr><nowait> \  defx#do_action('cd', getcwd())
-	nnoremap <silent><buffer><expr><nowait> &  defx#do_action('cd', getcwd())
-	nnoremap <silent><buffer><expr> <BS>  defx#async_action('cd', ['..'])
-	nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
-	nnoremap <silent><buffer><expr> u   defx#do_action('cd', ['..'])
-	nnoremap <silent><buffer><expr> 2u  defx#do_action('cd', ['../..'])
-	nnoremap <silent><buffer><expr> 3u  defx#do_action('cd', ['../../..'])
-	nnoremap <silent><buffer><expr> 4u  defx#do_action('cd', ['../../../..'])
+  " Change directory
+  nnoremap <silent><buffer><expr><nowait> \  defx#do_action('cd', getcwd())
+  nnoremap <silent><buffer><expr><nowait> &  defx#do_action('cd', getcwd())
+  nnoremap <silent><buffer><expr> <BS>  defx#async_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~     defx#async_action('cd')
+  nnoremap <silent><buffer><expr> u   defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> 2u  defx#do_action('cd', ['../..'])
+  nnoremap <silent><buffer><expr> 3u  defx#do_action('cd', ['../../..'])
+  nnoremap <silent><buffer><expr> 4u  defx#do_action('cd', ['../../../..'])
 
-	" Selection
-	nnoremap <silent><buffer><expr> *  defx#do_action('toggle_select_all')
+  " Selection
+  nnoremap <silent><buffer><expr> *  defx#do_action('toggle_select_all')
   " nnoremap <silent><buffer><expr><nowait> <Space>
-	"  \ defx#do_action('toggle_select') . 'j'
+  "  \ defx#do_action('toggle_select') . 'j'
 
-	nnoremap <silent><buffer><expr> S  defx#do_action('toggle_sort', 'Time')
-	nnoremap <silent><buffer><expr> C
-	  \ defx#do_action('toggle_columns', 'indent:mark:filename:type:size:time')
+  nnoremap <silent><buffer><expr> S  defx#do_action('toggle_sort', 'Time')
+  nnoremap <silent><buffer><expr> C
+    \ defx#do_action('toggle_columns', 'indent:mark:filename:type:size:time')
 endfunction

@@ -45,7 +45,6 @@ let s:denite_options = {
 \   'default' : {
 \     'split': 'floating',
 \     'auto-resize': 1,
-\     'auto-cd': 1,
 \     'winwidth': 200,
 \     'start_filter': 1,
 \     'source_names': 'short',
