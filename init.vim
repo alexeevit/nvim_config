@@ -39,6 +39,9 @@ set nowritebackup
 set nowb
 set noswapfile
 
+" Mostly for gitgutter, but it's the delay before vim writes to its swap file
+set updatetime=100
+
 " Tab size
 set expandtab " allows to replace the tabs by white spaces characters
 set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'
