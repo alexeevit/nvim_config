@@ -1,10 +1,9 @@
 source ~/.config/nvim/plugins.vim
-source ~/.config/nvim/mindings.vim
+source ~/.config/nvim/bindings.vim
 source ~/.config/nvim/denite.vim
 source ~/.config/nvim/ddu.vim
 source ~/.config/nvim/easymotion.vim
 source ~/.config/nvim/lightline.vim
-" source ~/.config/nvim/local_vimrc.vim
 source ~/.config/nvim/rooter.vim
 source ~/.config/nvim/colorscheme.vim
 source ~/.config/nvim/indent_guides.vim
