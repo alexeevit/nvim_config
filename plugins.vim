@@ -6,9 +6,22 @@ Plug 'tpope/vim-sensible'
 " Denite
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" DDU
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddu.vim'
+Plug 'Shougo/ddu-ui-ff'
+Plug 'Shougo/ddu-source-file'
+Plug 'Shougo/ddu-source-file_rec'
+Plug 'Shougo/ddu-filter-matcher_substring'
+Plug 'Shougo/ddu-filter-sorter_alpha'
+Plug 'Shougo/ddu-kind-file'
+Plug 'Shougo/ddu-ui-filer'
+Plug 'Shougo/ddu-column-filename'
+Plug 'Shougo/ddu-filter-matcher_hidden'
+
 " Local vimrc for each project
-Plug 'LucHermitte/lh-vim-lib'
-Plug 'LucHermitte/local_vimrc'
+" Plug 'LucHermitte/lh-vim-lib'
+" Plug 'LucHermitte/local_vimrc'
 
 " Colorscheme
 Plug 'icymind/NeoSolarized'
@@ -21,9 +34,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Buttom info line
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
-
-" File manager
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Auto chdir
 " Plug 'airblade/vim-rooter'
@@ -41,10 +51,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespace characters to be highlighted
 
 " Ruby
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'slim-template/vim-slim'
-Plug 'dewyze/vim-ruby-block-helpers'
+" Plug 'jlcrochet/vim-ruby', { 'for': 'ruby' }
+" Plug 'slim-template/vim-slim'
+" Plug 'dewyze/vim-ruby-block-helpers' # never used but interesting https://github.com/dewyze/vim-ruby-block-helpers
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -68,5 +79,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 " Data formats
 Plug 'elzr/vim-json'
 Plug 'chr4/nginx.vim'
+
+" Profiling
+Plug 'tweekmonster/startuptime.vim'
+Plug 'stevearc/profile.nvim'
 
 call plug#end()
