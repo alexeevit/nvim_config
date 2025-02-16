@@ -19,10 +19,6 @@ Plug 'Shougo/ddu-ui-filer'
 Plug 'Shougo/ddu-column-filename'
 Plug 'Shougo/ddu-filter-matcher_hidden'
 
-" Local vimrc for each project
-" Plug 'LucHermitte/lh-vim-lib'
-" Plug 'LucHermitte/local_vimrc'
-
 " Colorscheme
 Plug 'icymind/NeoSolarized'
 Plug 'cocopon/iceberg.vim'
@@ -51,11 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespace characters to be highlighted
 
 " Ruby
-" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
-" Plug 'jlcrochet/vim-ruby', { 'for': 'ruby' }
-" Plug 'slim-template/vim-slim'
-" Plug 'dewyze/vim-ruby-block-helpers' # never used but interesting https://github.com/dewyze/vim-ruby-block-helpers
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -79,9 +71,5 @@ Plug 'maxmellon/vim-jsx-pretty'
 " Data formats
 Plug 'elzr/vim-json'
 Plug 'chr4/nginx.vim'
-
-" Profiling
-Plug 'tweekmonster/startuptime.vim'
-Plug 'stevearc/profile.nvim'
 
 call plug#end()
