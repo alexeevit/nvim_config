@@ -2,3 +2,4 @@ plugged/
 plugin/
 .netrwhist
 autoload/
+.DS_Store

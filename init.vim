@@ -1,10 +1,9 @@
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/bindings.vim
 source ~/.config/nvim/denite.vim
-source ~/.config/nvim/defx.vim
+source ~/.config/nvim/ddu.vim
 source ~/.config/nvim/easymotion.vim
 source ~/.config/nvim/lightline.vim
-source ~/.config/nvim/local_vimrc.vim
 source ~/.config/nvim/rooter.vim
 source ~/.config/nvim/colorscheme.vim
 source ~/.config/nvim/indent_guides.vim
@@ -17,6 +16,7 @@ source ~/.config/nvim/indent_guides.vim
 " while the buffer is open.
 set hidden
 
+" set re=1 " faster ruby syntax by using old regex engine
 set clipboard=unnamedplus " Use system clipboard
 set nu " Show line numbers
 set cursorline " Highlight column under cursor
@@ -48,9 +48,11 @@ set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidt
 set shiftwidth=2 " makes the tabulations be 4 white spaces (for >> and friends)
 set tabstop=2 " defines the number of spaces that a tab character in the file counts for (for <Tab>)
 
+let ruby_no_expensive = 1
+
 autocmd FileType nginx setlocal sw=4 ts=4
 autocmd FileType python setlocal sw=4 ts=4
-autocmd FileType javascript setlocal sw=4 ts=4
+autocmd FileType javascript setlocal sw=2 ts=2
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
