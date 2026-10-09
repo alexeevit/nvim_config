@@ -43,8 +43,8 @@ Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespa
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': ':TSUpdate' }
 
-" Ruby
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -64,6 +64,7 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'kchmck/vim-coffee-script'
 
 " Data formats
 Plug 'elzr/vim-json'
