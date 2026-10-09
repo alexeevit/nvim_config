@@ -9,6 +9,7 @@ source ~/.config/nvim/lightline.vim
 source ~/.config/nvim/rooter.vim
 source ~/.config/nvim/colorscheme.vim
 source ~/.config/nvim/indent_guides.vim
+lua require('treesitter')
 
 " It hides buffers instead of closing them.
 " This means that you can have unwritten changes

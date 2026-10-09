@@ -43,6 +43,8 @@ Plug 'airblade/vim-gitgutter'
 " Linting and completion
 Plug 'ntpeters/vim-better-whitespace' " This plugin causes all trailing whitespace characters to be highlighted
 
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': ':TSUpdate' }
+
 " Ruby
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 
