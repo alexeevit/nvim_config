@@ -1,3 +1,5 @@
+let g:denops#deno = "/opt/homebrew/bin/deno"
+
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/bindings.vim
 source ~/.config/nvim/denite.vim

@@ -47,35 +47,6 @@ call ddu#custom#patch_local('files-browser', #{
       \       defaultAction: 'open',
       \     },
       \   },
-      \   actionOptions: #{
-      \     rename: #{
-      \       quit: v:false,
-      \     },
-      \     newFile: #{
-      \       quit: v:false,
-      \     },
-      \     newDirectory: #{
-      \       quit: v:false,
-      \     },
-      \     open: #{
-      \       quit: v:false,
-      \     },
-      \     tabopen: #{
-      \       quit: v:false,
-      \     },
-      \     split: #{
-      \       quit: v:false,
-      \     },
-      \     vsplit: #{
-      \       quit: v:false,
-      \     },
-      \     paste: #{
-      \       quit: v:false,
-      \     },
-      \     narrow: #{
-      \       quit: v:false,
-      \     },
-      \   },
       \ })
 
 autocmd FileType ddu-filer call s:ddu_my_settings()
@@ -97,8 +68,10 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> q
         \ <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> <C-t>
-        \ <Cmd>call ddu#ui#do_action('itemAction',
-        \ #{name: 'tabopen'})<CR>
+        \ <Cmd>call ddu#ui#do_action('itemAction', #{
+        \   name: 'tabopen',
+        \   params: #{ command: 'tabedit' },
+        \ })<CR>
   nnoremap <buffer><silent> <C-v>
         \ <Cmd>call ddu#ui#do_action('itemAction',
         \ #{name: 'vsplit'})<CR>
