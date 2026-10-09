@@ -48,7 +48,7 @@ set updatetime=100
 " Tab size
 set expandtab " allows to replace the tabs by white spaces characters
 set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'
-set shiftwidth=2 " makes the tabulations be 4 white spaces (for >> and friends)
+set shiftwidth=2 " makes the tabulations be 2 white spaces (for >> and friends)
 set tabstop=2 " defines the number of spaces that a tab character in the file counts for (for <Tab>)
 
 let ruby_no_expensive = 1
