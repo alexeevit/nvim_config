@@ -1,4 +1,4 @@
-let g:denops#deno = "/opt/homebrew/bin/deno"
+let g:python3_host_prog = "~/.config/nvim/.python-venv/bin/python3"
 
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/bindings.vim
