@@ -20,8 +20,6 @@ Plug 'Shougo/ddu-filter-matcher_hidden'
 Plug 'icymind/NeoSolarized'
 Plug 'cocopon/iceberg.vim'
 
-Plug 'f-person/auto-dark-mode.nvim'
-
 Plug 'nathanaelkane/vim-indent-guides'
 
 " Bottom info line
