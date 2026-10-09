@@ -54,6 +54,7 @@ autocmd FileType nginx setlocal sw=4 ts=4
 autocmd FileType python setlocal sw=4 ts=4
 autocmd FileType javascript setlocal sw=2 ts=2
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
+autocmd FileType erb setlocal filetype=eruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
