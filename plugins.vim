@@ -44,9 +44,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
 Plug 'rust-lang/rust.vim'
 
-" Lua
-Plug 'tbastos/vim-lua'
-
 " Python
 Plug 'vim-python/python-syntax'
 
