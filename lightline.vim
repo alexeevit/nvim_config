@@ -3,7 +3,6 @@ let g:lightline = {}
 
 let g:lightline.component_function = {
 \   'gitbranch': 'LightlineGitbranch',
-\   'mode': 'LightlineMode',
 \   'cwd': 'LightlineCwd',
 \   'filename': 'LightlineFilename',
 \ }
@@ -16,10 +15,6 @@ endfunction
 
 function! LightlineGitbranch()
   return gitbranch#name()
-endfunction
-
-function! LightlineMode()
-  return lightline#mode()
 endfunction
 
 function! LightlineCwd()
