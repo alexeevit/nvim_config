@@ -11,19 +11,19 @@ let g:lightline.component_function = {
 function! LightlineFilename()
   let modified = &modified ? '+' : ''
   let filename = expand('%') . modified
-  return &filetype ==# 'defx' ? '' : filename
+  return filename
 endfunction
 
 function! LightlineGitbranch()
-  return &filetype ==# 'defx' ? '' : gitbranch#name()
+  return gitbranch#name()
 endfunction
 
 function! LightlineMode()
-  return &filetype ==# 'defx' ? 'defx' : lightline#mode()
+  return lightline#mode()
 endfunction
 
 function! LightlineCwd()
-  return &filetype ==# 'defx' ? '' : getcwd()
+  return getcwd()
 endfunction
 
 function! LightlineReload() abort

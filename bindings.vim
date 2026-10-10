@@ -6,12 +6,8 @@ nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tj  :tabprev<CR>
 nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnew<CR>
 nnoremap td  :tabclose<CR>
-
-" Don't use this binding because it breaks windows splitting by C-W-V and C-W-S
-" nnoremap <silent><C-W> :tabclose<CR>
 
 " Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with line wrapping on, this can cause the cursor to actually skip a few lines on the screen because it's moving from line N to line N+1 in the file. I want this to act more visually -- I want `down' to mean the next line on the screen
 nnoremap <silent>j gj
@@ -37,7 +33,6 @@ vnoremap ж :
 
 " Move rows to 1 tab with << or >>
 vnoremap < <gv
-vnoremap <s-lt> <gv
 vnoremap > >gv
 
 " Set leader key to space

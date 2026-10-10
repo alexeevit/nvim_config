@@ -17,7 +17,6 @@ Plug 'Shougo/ddu-column-filename'
 Plug 'Shougo/ddu-filter-matcher_hidden'
 
 " Colorscheme
-Plug 'icymind/NeoSolarized'
 Plug 'cocopon/iceberg.vim'
 
 Plug 'nathanaelkane/vim-indent-guides'
@@ -25,9 +24,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Bottom info line
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
-
-" Auto chdir
-" Plug 'airblade/vim-rooter'
 
 " Pass line and column to open at in the path
 Plug 'wsdjeg/vim-fetch'

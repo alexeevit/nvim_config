@@ -6,7 +6,6 @@ source ~/.config/nvim/denite.vim
 source ~/.config/nvim/ddu.vim
 source ~/.config/nvim/easymotion.vim
 source ~/.config/nvim/lightline.vim
-source ~/.config/nvim/rooter.vim
 source ~/.config/nvim/colorscheme.vim
 source ~/.config/nvim/indent_guides.vim
 lua require('treesitter')
@@ -19,7 +18,6 @@ lua require('treesitter')
 " while the buffer is open.
 set hidden
 
-" set re=1 " faster ruby syntax by using old regex engine
 set clipboard=unnamedplus " Use system clipboard
 set nu " Show line numbers
 set cursorline " Highlight column under cursor
@@ -39,7 +37,6 @@ set smartcase
 " Backup and swap files
 set nobackup
 set nowritebackup
-set nowb
 set noswapfile
 
 " Mostly for gitgutter, but it's the delay before vim writes to its swap file
@@ -55,9 +52,7 @@ let ruby_no_expensive = 1
 
 autocmd FileType nginx setlocal sw=4 ts=4
 autocmd FileType python setlocal sw=4 ts=4
-autocmd FileType javascript setlocal sw=2 ts=2
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
-autocmd FileType erb setlocal filetype=eruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 

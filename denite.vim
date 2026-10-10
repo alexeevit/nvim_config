@@ -40,7 +40,6 @@ call denite#custom#var('buffer', 'date_format', '')
 "   prompt_highlight        - Specify color of prompt
 "   highlight_matched_char  - Matched characters highlight
 "   highlight_matched_range - matched range highlight
-" \ 'auto_resize': 1,
 let s:denite_options = {
 \   'default' : {
 \     'split': 'floating',
