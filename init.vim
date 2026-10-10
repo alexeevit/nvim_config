@@ -10,18 +10,10 @@ source ~/.config/nvim/colorscheme.vim
 source ~/.config/nvim/indent_guides.vim
 lua require('treesitter')
 
-" It hides buffers instead of closing them.
-" This means that you can have unwritten changes
-" to a file and open a new file using :e, without
-" being forced to write or undo your changes first.
-" Also, undo buffers and marks are preserved
-" while the buffer is open.
-set hidden
-
 set clipboard=unnamedplus " Use system clipboard
 set nu " Show line numbers
-set cursorline " Highlight column under cursor
-set cursorcolumn " Highlight line under cursor
+set cursorline " Highlight line under cursor
+set cursorcolumn " Highlight column under cursor
 set noshowmode " No show mode in status because we already have it in lightline
 set signcolumn=yes " Column left ot row-num for git symbols
 set showmatch " [] and {} highlighting
@@ -30,12 +22,10 @@ set showmatch " [] and {} highlighting
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 " Search settings
-set hlsearch
 set ignorecase
 set smartcase
 
 " Backup and swap files
-set nobackup
 set nowritebackup
 set noswapfile
 
@@ -44,7 +34,6 @@ set updatetime=100
 
 " Tab size
 set expandtab " allows to replace the tabs by white spaces characters
-set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'
 set shiftwidth=2 " makes the tabulations be 2 white spaces (for >> and friends)
 set tabstop=2 " defines the number of spaces that a tab character in the file counts for (for <Tab>)
 

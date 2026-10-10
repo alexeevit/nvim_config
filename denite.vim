@@ -32,12 +32,7 @@ call denite#custom#var('grep', 'final_opts', [])
 call denite#custom#var('buffer', 'date_format', '')
 
 " Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
 "   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
 "   highlight_matched_char  - Matched characters highlight
 "   highlight_matched_range - matched range highlight
 let s:denite_options = {
@@ -73,8 +68,7 @@ endtry
 " === Denite shorcuts === "
 "   <leader>;         - Browser currently open buffers
 "   <leader>t - Browse list of files in current directory
-"   <leader>g - Search current directory for occurences of given term and close window if no results
-"   <leader>J - Search current directory for occurences of word under cursor
+"   <leader>f - Search current directory for occurences of given term
 nmap <leader>; :Denite buffer<CR>
 nmap <leader>t :DeniteProjectDir file/rec<CR>
 nnoremap <leader>f :<C-u>Denite grep<CR>
