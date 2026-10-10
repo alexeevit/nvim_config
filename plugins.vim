@@ -58,7 +58,6 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
 " JS & TS
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'kchmck/vim-coffee-script'
 

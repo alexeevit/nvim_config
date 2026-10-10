@@ -68,10 +68,8 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> q
         \ <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> <C-t>
-        \ <Cmd>call ddu#ui#do_action('itemAction', #{
-        \   name: 'tabopen',
-        \   params: #{ command: 'tabedit' },
-        \ })<CR>
+        \ <Cmd>call ddu#ui#do_action('itemAction',
+        \ #{name: 'tabopen'})<CR>
   nnoremap <buffer><silent> <C-v>
         \ <Cmd>call ddu#ui#do_action('itemAction',
         \ #{name: 'vsplit'})<CR>

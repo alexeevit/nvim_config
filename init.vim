@@ -48,12 +48,8 @@ set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidt
 set shiftwidth=2 " makes the tabulations be 2 white spaces (for >> and friends)
 set tabstop=2 " defines the number of spaces that a tab character in the file counts for (for <Tab>)
 
-let ruby_no_expensive = 1
-
 autocmd FileType nginx setlocal sw=4 ts=4
 autocmd FileType python setlocal sw=4 ts=4
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
-
-let g:ruby_host_prog = '~/.rbenv/versions/3.2.2/bin/neovim-ruby-host'
