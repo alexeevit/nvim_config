@@ -69,13 +69,13 @@ function! s:ddu_my_settings() abort
         \ <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> <C-t>
         \ <Cmd>call ddu#ui#do_action('itemAction',
-        \ #{name: 'tabopen'})<CR>
+        \ #{name: 'open', params: #{command: 'tabedit'}})<CR>
   nnoremap <buffer><silent> <C-v>
         \ <Cmd>call ddu#ui#do_action('itemAction',
-        \ #{name: 'vsplit'})<CR>
+        \ #{name: 'open', params: #{command: 'vsplit'}})<CR>
   nnoremap <buffer><silent> <C-s>
         \ <Cmd>call ddu#ui#do_action('itemAction',
-        \ #{name: 'split'})<CR>
+        \ #{name: 'open', params: #{command: 'split'}})<CR>
   nnoremap <buffer><silent> K
         \ <Cmd>call ddu#ui#do_action('itemAction',
         \ #{ name: 'newDirectory' })<CR>

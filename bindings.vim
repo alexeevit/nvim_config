@@ -22,8 +22,6 @@ nnoremap <silent><C-h> <C-w><Left>
 " Escape mappings
 imap jk <Esc>
 imap JK <Esc>
-imap kk <Esc>
-imap KK <Esc>
 
 " Enter command mode mappings
 nnoremap Ж :
