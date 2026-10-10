@@ -17,6 +17,7 @@ set cursorcolumn " Highlight column under cursor
 set noshowmode " No show mode in status because we already have it in lightline
 set signcolumn=yes " Column left ot row-num for git symbols
 set showmatch " [] and {} highlighting
+set history=10000 " Neovim's default; set explicitly so vim-sensible doesn't lower it to 1000
 
 " Enable hotkeys for Russian layout
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz

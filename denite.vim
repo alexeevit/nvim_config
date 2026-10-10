@@ -1,7 +1,3 @@
-" To Avoid Error detected while processing function <lambda>19[1]..denite#_update_map[3]..denite#util#rpcrequest...
-" https://github.com/Shougo/denite.nvim/issues/636#issuecomment-493271207
-set history=1000
-
 try
 " === Denite setup ==="
 " Use ripgrep for searching current directory for files
