@@ -9,7 +9,11 @@ function! s:IndentGuidesColors() abort
   endif
 endfunction
 
-autocmd ColorScheme iceberg call s:IndentGuidesColors()
+augroup colorscheme_sync
+  autocmd!
+  autocmd ColorScheme iceberg call s:IndentGuidesColors()
+  autocmd FocusGained * call s:SyncBackground()
+augroup END
 
 set background=light
 colorscheme iceberg
@@ -33,4 +37,3 @@ function! s:SyncBackground() abort
 endfunction
 
 call s:SyncBackground()
-autocmd FocusGained * call s:SyncBackground()

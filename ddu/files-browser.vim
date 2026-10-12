@@ -49,7 +49,10 @@ call ddu#custom#patch_local('files-browser', #{
       \   },
       \ })
 
-autocmd FileType ddu-filer call s:ddu_my_settings()
+augroup ddu_files_browser
+  autocmd!
+  autocmd FileType ddu-filer call s:ddu_my_settings()
+augroup END
 function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> <CR>
         \ <Cmd>call ddu#ui#do_action('itemAction')<CR>

@@ -8,6 +8,7 @@ require'nvim-treesitter'.install {
 -- Python and others use its syntax groups to skip strings and comments, and
 -- indent wrongly without them.
 vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('treesitter_start', {}),
   callback = function(args)
     if pcall(vim.treesitter.start, args.buf) then
       vim.bo[args.buf].syntax = 'ON'

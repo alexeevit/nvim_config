@@ -20,8 +20,8 @@ nnoremap <silent><C-l> <C-w><Right>
 nnoremap <silent><C-h> <C-w><Left>
 
 " Escape mappings
-imap jk <Esc>
-imap JK <Esc>
+inoremap jk <Esc>
+inoremap JK <Esc>
 
 " Enter command mode mappings
 nnoremap Ж :

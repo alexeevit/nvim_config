@@ -2,8 +2,8 @@
 let g:lightline = {}
 
 let g:lightline.component_function = {
-\   'gitbranch': 'LightlineGitbranch',
-\   'cwd': 'LightlineCwd',
+\   'gitbranch': 'gitbranch#name',
+\   'cwd': 'getcwd',
 \   'filename': 'LightlineFilename',
 \ }
 
@@ -11,14 +11,6 @@ function! LightlineFilename()
   let modified = &modified ? '+' : ''
   let filename = expand('%') . modified
   return filename
-endfunction
-
-function! LightlineGitbranch()
-  return gitbranch#name()
-endfunction
-
-function! LightlineCwd()
-  return getcwd()
 endfunction
 
 function! LightlineReload() abort
