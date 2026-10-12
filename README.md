@@ -22,7 +22,7 @@ brew install neovim deno ripgrep tree-sitter-cli glib go
 |---|---|
 | `neovim` | 0.12 or newer, required by nvim-treesitter's `main` branch |
 | `deno` | denops, which runs ddu: the file browser and the finders |
-| `ripgrep` | file finder (`<leader>t`) and grep (`<leader>f`) |
+| `ripgrep` | file finder (`<leader>t`) and grep (`<leader>f`, `<leader>F`) |
 | `tree-sitter-cli` | building Treesitter parsers (0.26.1 or newer; don't install it from npm) |
 | `glib` | `gio trash`, used by the file browser's `D` (move to trash) |
 | `go` | vim-go, which installs its Go tools (`gopls` and others) during plugin install |
@@ -122,7 +122,8 @@ A floating list at the top of the screen with a fuzzy filter prompt below it. St
 | Keys | Action |
 |---|---|
 | `<leader>t` | files in the project (from the nearest `.git` up; ripgrep, respects `.gitignore`) |
-| `<leader>f` | grep the current directory: enter a pattern (regex, smart case, includes hidden files), then filter the matches |
+| `<leader>f` | live grep the current directory: results update as you type the pattern (regex, smart case, includes hidden files, at least 2 characters); the prompt shows `searching…`, then the match count |
+| `<leader>F` | grep the current directory: enter a pattern first, then fuzzy filter the matches |
 | `<leader>;` | open buffers |
 
 In the filter prompt: `Enter` opens, `Ctrl-t` / `Ctrl-v` / `Ctrl-s` open in a tab / vertical split / split, `Ctrl-o` jumps to the results, `Esc` quits.
