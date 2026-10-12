@@ -1,8 +1,5 @@
 call plug#begin(stdpath('data') . '/plugged')
 
-" Defaults
-Plug 'tpope/vim-sensible'
-
 " DDU
 Plug 'vim-denops/denops.vim'
 Plug 'Shougo/ddu.vim'
@@ -47,21 +44,15 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
 Plug 'rust-lang/rust.vim'
 
-" Python
-Plug 'vim-python/python-syntax'
-
 " PHP
 Plug 'jwalton512/vim-blade', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
 " JS & TS
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'kchmck/vim-coffee-script'
 
 " Data formats
-Plug 'elzr/vim-json'
 Plug 'chr4/nginx.vim'
 
 call plug#end()

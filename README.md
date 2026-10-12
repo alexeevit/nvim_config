@@ -50,7 +50,7 @@ This takes a minute or two. It prints errors about `iceberg`, `ddu#custom#patch_
 
 ### 5. First start
 
-Open `nvim` normally. The Treesitter parsers (`ruby`, `javascript`, `embedded_template`, `html`) build in the background on this start; files opened after they finish get Treesitter highlighting.
+Open `nvim` normally. The Treesitter parsers (`ruby`, `javascript`, `embedded_template`, `html`, `go`, `rust`, `python`, `php`, `typescript`, `tsx`, `json`) build in the background on this start; files opened after they finish get Treesitter highlighting.
 
 Check that everything is in place:
 
@@ -86,7 +86,7 @@ The nvim-treesitter install hook runs `:TSUpdate` afterwards, which keeps the pa
 Highlights:
 
 - **Theme**: iceberg. Light or dark follows the macOS appearance, checked at startup and whenever Neovim regains focus.
-- **Treesitter**: highlighting for every filetype with a parser, including Neovim's bundled ones (Lua, Vim, Markdown, C, help). Other languages use their syntax plugins (vim-go, rust.vim, python-syntax, php.vim, yats.vim, vim-jsx-pretty, vim-coffee-script, vim-json, nginx.vim).
+- **Treesitter**: highlighting for every filetype with a parser, including Neovim's bundled ones (Lua, Vim, Markdown, C, help). Regex syntax keeps running underneath because indent scripts rely on it. Language plugins add what Treesitter doesn't: vim-go and rust.vim (commands, formatting), PHP-Indenting-for-VIm and vim-jsx-pretty (indentation), vim-blade, vim-coffee-script and nginx.vim (filetypes without a parser here).
 - **Russian layout**: normal-mode commands work on a Russian keyboard layout (`langmap`), and `ж`/`Ж` enter command mode.
 - **Clipboard**: yank and paste use the system clipboard.
 - **No swap or backup files.**

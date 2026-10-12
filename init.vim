@@ -19,7 +19,9 @@ set cursorcolumn " Highlight column under cursor
 set noshowmode " No show mode in status because we already have it in lightline
 set signcolumn=yes " Column left ot row-num for git symbols
 set showmatch " [] and {} highlighting
-set history=10000 " Neovim's default; set explicitly so vim-sensible doesn't lower it to 1000
+set scrolloff=1 " Keep a line of context above and below the cursor
+set sidescrolloff=2 " Keep two columns of context left and right of the cursor
+set display+=truncate " Show @@@ in the last line if it doesn't fit
 
 " Enable hotkeys for Russian layout
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
@@ -43,4 +45,3 @@ set tabstop=2 " defines the number of spaces that a tab character in the file co
 autocmd FileType nginx setlocal sw=4 ts=4
 autocmd FileType python setlocal sw=4 ts=4
 autocmd BufRead,BufNewFile *.arb setfiletype ruby
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
