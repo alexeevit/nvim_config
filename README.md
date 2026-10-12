@@ -1,6 +1,6 @@
 # My Neovim config
 
-Vimscript config for Neovim 0.12+ on macOS, with plugins managed by [vim-plug](https://github.com/junegunn/vim-plug).
+Vimscript config for Neovim 0.12+ on macOS, with plugins managed by [vim-plug](https://github.com/junegunn/vim-plug). Works in terminal `nvim` and in [VimR](https://github.com/qvacua/vimr), which bundles its own Neovim; that copy must also be 0.12 or newer.
 
 ## Installation
 
@@ -15,15 +15,14 @@ xcode-select --install
 Then install the rest with [Homebrew](https://brew.sh):
 
 ```sh
-brew install neovim deno ripgrep uv tree-sitter-cli glib go
+brew install neovim deno ripgrep tree-sitter-cli glib go
 ```
 
 | Package | Used by |
 |---|---|
 | `neovim` | 0.12 or newer, required by nvim-treesitter's `main` branch |
-| `deno` | denops, which runs the ddu file browser |
-| `ripgrep` | Denite file search (`<leader>t`) and grep (`<leader>f`) |
-| `uv` | creating the Python environment for Denite |
+| `deno` | denops, which runs ddu: the file browser and the finders |
+| `ripgrep` | file finder (`<leader>t`) and grep (`<leader>f`) |
 | `tree-sitter-cli` | building Treesitter parsers (0.26.1 or newer; don't install it from npm) |
 | `glib` | `gio trash`, used by the file browser's `D` (move to trash) |
 | `go` | vim-go, which installs its Go tools (`gopls` and others) during plugin install |
@@ -34,33 +33,22 @@ brew install neovim deno ripgrep uv tree-sitter-cli glib go
 git clone <repo-url> ~/.config/nvim
 ```
 
-### 3. Python environment
-
-Denite is a Python remote plugin. The config points Neovim at a dedicated virtualenv inside the config directory (`.python-venv`, ignored by git):
-
-```sh
-uv venv ~/.config/nvim/.python-venv
-uv pip install --python ~/.config/nvim/.python-venv pynvim
-```
-
-Create it before installing plugins, or Denite's remote plugin won't register.
-
-### 4. vim-plug
+### 3. vim-plug
 
 ```sh
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-### 5. Install plugins
+### 4. Install plugins
 
 ```sh
 nvim --headless +'PlugInstall --sync' +qa
 ```
 
-This takes a minute or two. It prints errors about `iceberg`, `ddu#custom#patch_local` and `nvim-treesitter` because the config loads before the plugins exist; that's expected on this first run only. Plugin install hooks also run here: Denite's `:UpdateRemotePlugins` and vim-go's `:GoUpdateBinaries`.
+This takes a minute or two. It prints errors about `iceberg`, `ddu#custom#patch_local` and `nvim-treesitter` because the config loads before the plugins exist; that's expected on this first run only. vim-go's install hook, `:GoUpdateBinaries`, also runs here.
 
-### 6. First start
+### 5. First start
 
 Open `nvim` normally. The Treesitter parsers (`ruby`, `javascript`, `embedded_template`, `html`) build in the background on this start; files opened after they finish get Treesitter highlighting.
 
@@ -85,8 +73,10 @@ The nvim-treesitter install hook runs `:TSUpdate` afterwards, which keeps the pa
 | `init.vim` | entry point: providers, general options, filetype tweaks; loads the files below |
 | `plugins.vim` | plugin list |
 | `bindings.vim` | general key mappings, leader keys |
-| `denite.vim` | Denite: buffer list, file search, grep |
-| `ddu.vim`, `ddu/files-browser.vim` | ddu sidebar file browser |
+| `ddu.vim` | loads the ddu files below |
+| `ddu/files-browser.vim` | sidebar file browser |
+| `ddu/finder.vim` | file finder, grep and buffer list |
+| `denops/@ddu-filters/sorter_length/` | ddu sorter that ranks equally good fuzzy matches shortest path first |
 | `easymotion.vim` | EasyMotion jumps |
 | `lightline.vim` | status line |
 | `colorscheme.vim` | iceberg theme, follows macOS light/dark appearance |
@@ -125,13 +115,15 @@ Leader is `Space`; local leader is `,`.
 
 The `t`-prefixed mappings replace Vim's `t{char}` motion for those letters.
 
-### Denite
+### Finders (ddu)
+
+A floating list at the top of the screen with a fuzzy filter prompt below it. Start typing as soon as it opens.
 
 | Keys | Action |
 |---|---|
+| `<leader>t` | files in the project (from the nearest `.git` up; ripgrep, respects `.gitignore`) |
+| `<leader>f` | grep the current directory: enter a pattern (regex, smart case, includes hidden files), then filter the matches |
 | `<leader>;` | open buffers |
-| `<leader>t` | files in the project (ripgrep, respects `.gitignore`) |
-| `<leader>f` | grep the current directory |
 
 In the filter prompt: `Enter` opens, `Ctrl-t` / `Ctrl-v` / `Ctrl-s` open in a tab / vertical split / split, `Ctrl-o` jumps to the results, `Esc` quits.
 

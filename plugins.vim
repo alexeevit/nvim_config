@@ -3,9 +3,6 @@ call plug#begin(stdpath('data') . '/plugged')
 " Defaults
 Plug 'tpope/vim-sensible'
 
-" Denite
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-
 " DDU
 Plug 'vim-denops/denops.vim'
 Plug 'Shougo/ddu.vim'
@@ -15,6 +12,12 @@ Plug 'Shougo/ddu-kind-file'
 Plug 'Shougo/ddu-ui-filer'
 Plug 'Shougo/ddu-column-filename'
 Plug 'Shougo/ddu-filter-matcher_hidden'
+Plug 'Shougo/ddu-ui-ff'
+Plug 'matsui54/ddu-source-file_external'
+Plug 'shun/ddu-source-rg'
+Plug 'shun/ddu-source-buffer'
+Plug 'yuki-yano/ddu-filter-fzf'
+Plug 'Shougo/cmdline.vim'
 
 " Colorscheme
 Plug 'cocopon/iceberg.vim'

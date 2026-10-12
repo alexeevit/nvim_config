@@ -1,10 +1,9 @@
-let g:python3_host_prog = "~/.config/nvim/.python-venv/bin/python3"
+let g:loaded_python3_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
 
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/bindings.vim
-source ~/.config/nvim/denite.vim
 source ~/.config/nvim/ddu.vim
 source ~/.config/nvim/easymotion.vim
 source ~/.config/nvim/lightline.vim
