@@ -23,6 +23,9 @@ nnoremap <silent><C-h> <C-w><Left>
 inoremap jk <Esc>
 inoremap JK <Esc>
 
+" Cmd+Backspace clears the command line before the cursor (also the finder prompts)
+cnoremap <D-BS> <C-u>
+
 " Enter command mode mappings
 nnoremap Ж :
 vnoremap Ж :
