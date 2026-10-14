@@ -47,4 +47,6 @@ augroup init_filetypes
   autocmd FileType nginx setlocal sw=4 ts=4
   autocmd FileType python setlocal sw=4 ts=4
   autocmd BufRead,BufNewFile *.arb setfiletype ruby
+  " Neovim calls ERB 'eruby'; this makes modelines like 'vim: ft=erb' work
+  autocmd FileType erb setlocal filetype=eruby
 augroup END
